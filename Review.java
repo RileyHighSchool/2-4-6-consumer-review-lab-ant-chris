@@ -3,6 +3,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Random;
+import java.beans.Customizer;
 import java.io.*;
 
 /**
@@ -162,4 +163,25 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+
+  public static double totalSentiment(String fileName){
+    String consumerReview = textToString(fileName);
+    
+    //double
+    double total = 0.0;
+    //loop
+    while (consumerReview.length() > 0 && consumerReview.indexOf(" ")!= -1){
+      int space = consumerReview.indexOf(" ");
+      //find space
+      String word = consumerReview.substring(0, space);
+      //reset consumerReview
+      consumerReview = consumerReview.substring(space+1);
+
+      total += sentimentVal(removePunctuation(word));
+    }
+
+    total += sentimentVal(removePunctuation(consumerReview));
+    return total;
+  }
+
 }
