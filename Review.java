@@ -162,21 +162,6 @@ public class Review {
     } else {
       return randomNegativeAdj();
     }
-
-
-  }
-  
-  public static double totalSentiment(String fileName) {
-    String customerReview = textToString (fileName);
-    
-    double counter = 0.0;
-    
-    while (customerReview.length() > 0){}
-      int spaceloc = customerReview.indexOf(" ");
-
-      String word = customerReview.substring (spaceloc+1)
-
-    
   }
 
   public static double totalSentiment(String fileName){
