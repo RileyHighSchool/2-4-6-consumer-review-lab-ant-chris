@@ -1,9 +1,8 @@
- bad 
- stupid
- dumb
- ugly 
- smelly 
- rude 
- akward 
- annoying 
- 
+bad 
+stupid 
+dumb 
+ugly 
+smelly 
+rude 
+akward 
+annoying 
