@@ -1,0 +1,11 @@
+cat 
+dog
+table 
+chair 
+car 
+house
+building 
+shoe
+snowball
+cup
+computer 

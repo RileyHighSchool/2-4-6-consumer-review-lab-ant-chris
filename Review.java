@@ -14,7 +14,8 @@ public class Review {
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
- 
+  private static ArrayList<String> nouns = new ArrayList<String>();
+
   
   private static final String SPACE = " ";
   
@@ -58,6 +59,20 @@ public class Review {
     catch(Exception e){
       System.out.println("Error reading or parsing negativeAdjectives.txt");
     }   
+
+        //make sure to remove any additional space that may have been added at the end of the string.
+        try {
+          Scanner input = new Scanner(new File("noun.txt"));
+          while(input.hasNextLine()){
+            String temp = input.nextLine().trim();
+            // System.out.println(temp);
+            nouns.add(temp);
+          }
+          input.close();
+        }
+        catch(Exception e){
+          System.out.println("Error reading or parsing noun.txt\n" + e);
+        }  
   }
   
   /** 
@@ -80,7 +95,8 @@ public class Review {
     catch(Exception e){
       System.out.println("Unable to locate " + fileName);
     }
-    //make sure to remove any additional space that may have been added at the end of the string.
+ 
+
     return temp.trim();
   }
   
@@ -164,6 +180,12 @@ public class Review {
     }
   }
 
+  public static String randomNoun()
+  {
+    int index = (int)(Math.random() * nouns.size());
+    return nouns.get(index);
+  }
+
   public static double totalSentiment(String fileName){
     String consumerReview = textToString(fileName);
     
@@ -224,18 +246,23 @@ public static String nounGenerator(String fileName) {
   System.out.println("Make a random sentence and add astriks before every noun");
 
   String input = sc.nextLine();
-
+  String newReview = "";
   
-  if(input.indexOf("*") >0){
+  while(input.indexOf("*") >0){
 
   int Astrisk = input.indexOf("*"); 
   int space = input.indexOf(" ", Astrisk);
 
-  String funnyInput = input.substring(0, Astrisk);
+  newReview += input.substring(0, Astrisk);
 
+  //add a noun
+  newReview += randomNoun();
+  //chop off beginning of input
 
+  input = input.substring(space);
      
   }
-  return input;
+  newReview+=input;
+  return newReview;
 }
 }
