@@ -1,3 +1,5 @@
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class Main {
 
     public static void main(String[] args){
@@ -6,7 +8,8 @@ public class Main {
         // System.out.println(Review.sentimentVal("is"));
         // System.out.println(Review.sentimentVal("test"));
         // System.out.println(Review.totalSentiment("simpleReview.txt"));
-        System.out.println(Review.fakeReview("simpleReview.txt", false));
+        // System.out.println(Review.fakeReview("simpleReview.txt", false));
+        System.out.println(Review.nounGenerator("simpleReview.txt"));
     
     }
     

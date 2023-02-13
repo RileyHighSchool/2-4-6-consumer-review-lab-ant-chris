@@ -218,9 +218,24 @@ public class Review {
     return newReview;
   }
 
+public static String nounGenerator(String fileName) {
+ 
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Make a random sentence and add astriks before every noun");
 
-
-
+  String input = sc.nextLine();
 
   
+  if(input.indexOf("*") >0){
+
+  int Astrisk = input.indexOf("*"); 
+  int space = input.indexOf(" ", Astrisk);
+
+  String funnyInput = input.substring(0, Astrisk);
+
+
+     
+  }
+  return input;
+}
 }
