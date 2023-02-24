@@ -248,7 +248,7 @@ public static String nounGenerator(String fileName) {
   String input = sc.nextLine();
   String newReview = "";
   
-  while(input.indexOf("*") >0){
+  while(input.length()>0 && input.indexOf("*") != -1){
 
   int Astrisk = input.indexOf("*"); 
   int space = input.indexOf(" ", Astrisk);
